@@ -1,0 +1,33 @@
+<%- include("_header") -%>
+
+<h1>List of books (<%= model.length %>)</h1>
+
+<div class="table-responsive-sm">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>email</th>
+        <th>password</th>
+        <th class="d-print-none">
+          <a class="btn btn-sm btn-success" href="/insert">Add</a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (const showdata of model) { %>
+        <tr>
+          <td><%= showdata.name %></td>
+          <td><%= showdata.email %></td>
+          <td><%= showdata.password %></td>
+          <td class="d-print-none">
+            <a class="btn btn-sm btn-warning" href="/editdata/<%= showdata.ID %>">Edit</a>
+            <a class="btn btn-sm btn-danger" href="/delete/<%= showdata.ID %>">Delete</a>
+          </td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+
+<%- include("_footer") -%>
